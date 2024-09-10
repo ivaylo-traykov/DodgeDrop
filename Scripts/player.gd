@@ -1,7 +1,8 @@
 extends CharacterBody2D
+class_name Player
 
 var speed = 300
-var drift = 30
+var drift = speed / 10
 
 func _process(delta):
 	

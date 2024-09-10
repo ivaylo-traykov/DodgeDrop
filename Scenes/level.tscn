@@ -1,8 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://h6cajh187ua4"]
+[gd_scene load_steps=4 format=3 uid="uid://h6cajh187ua4"]
 
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_rfqn2"]
 [ext_resource type="PackedScene" uid="uid://bom08i33w53dc" path="res://Scenes/player.tscn" id="1_xglin"]
+[ext_resource type="Texture2D" uid="uid://6kcm6jywnyle" path="res://Assets/bckgrnd.png" id="3_gfjaq"]
 
 [node name="level" type="Node2D"]
+script = ExtResource("1_rfqn2")
 
 [node name="Player" parent="." instance=ExtResource("1_xglin")]
 position = Vector2(355, 908)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+z_index = -100
+position = Vector2(360, 480)
+texture = ExtResource("3_gfjaq")
+
+[node name="spawn_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="spawn_cooldown" to="." method="_on_spawn_cooldown_timeout"]
