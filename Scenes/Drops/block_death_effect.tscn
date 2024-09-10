@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cficrmlgkc5hf"]
+
+[ext_resource type="Script" path="res://Scripts/block_death_effect.gd" id="1_e226i"]
+
+[sub_resource type="Curve" id="Curve_mlfrc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[node name="BlockDeathEffect" type="Node2D"]
+script = ExtResource("1_e226i")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 150
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.8
+fract_delta = false
+emission_shape = 3
+emission_rect_extents = Vector2(32, 32)
+direction = Vector2(50, 50)
+spread = 106.39
+scale_amount_min = 2.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_mlfrc")
+color = Color(0.870588, 0.2, 0.2, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

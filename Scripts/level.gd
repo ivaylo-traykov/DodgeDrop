@@ -1,7 +1,6 @@
 extends Node
 
 var rng = RandomNumberGenerator.new()
-var time = 0
 var spawn_ready = false
 var item_scene = preload("res://Scenes/Drops/block.tscn")
 var timer = null
@@ -11,9 +10,7 @@ func _ready():
 	timer = $spawn_cooldown
 	screen_width = int(get_viewport().size.x)
 
-func _process(delta):
-	time += delta
-	
+func _process(delta):	
 	## SPAWN DROPS
 	if spawn_ready:
 		var item = item_scene.instantiate()
