@@ -4,13 +4,25 @@ const HIGHSCORE = "res://highscore.bin"
 
 var lives = 3
 var score = 0
+var player_protected = false
+var player_protected_cooldown = 1.5
+
+func _process(delta):
+	if player_protected:
+		player_protected_cooldown -= delta
+	
+	if player_protected_cooldown <= 0:
+		player_protected = false
 
 func player_get_hit():
-	lives -= 1
-	if lives <= 0:
-		await get_tree().create_timer(1).timeout 
-		set_highscore()
-		game_over()
+	if not player_protected:
+		player_protected = true
+		player_protected_cooldown = 1.5
+		lives -= 1
+		if lives <= 0:
+			await get_tree().create_timer(1).timeout 
+			set_highscore()
+			game_over()
 
 func get_dificulty():
 	return round(score / 500)

@@ -4,12 +4,16 @@ class_name Player
 var speed = 300
 var drift = speed / 10
 var death_effect_scene = preload("res://Scenes/player_death_effect.tscn")
-
+@onready var sprite = $AnimatedSprite2D
 
 func _process(delta):
-	
 	if Game.lives <= 0:
 		die()
+		
+	if Game.player_protected:
+		sprite.play("protected")
+	else:
+		sprite.play("default")
 	
 	var direction = Input.get_axis("ui_left", "ui_right")
 	

@@ -1,7 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://bom08i33w53dc"]
+[gd_scene load_steps=13 format=3 uid="uid://bom08i33w53dc"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ngrnm"]
 [ext_resource type="Texture2D" uid="uid://bv1kpgyh1wox8" path="res://Assets/Player/player.png" id="2_fodoy"]
+[ext_resource type="Texture2D" uid="uid://df46oers8qr38" path="res://Assets/Player/player_protected.png" id="3_s4e87"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k400"]
+atlas = ExtResource("3_s4e87")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucrbq"]
+atlas = ExtResource("3_s4e87")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jedku"]
+atlas = ExtResource("3_s4e87")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0pd2"]
+atlas = ExtResource("3_s4e87")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6a7r"]
+atlas = ExtResource("3_s4e87")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drd2r"]
+atlas = ExtResource("3_s4e87")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tnog"]
+atlas = ExtResource("3_s4e87")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5g35j"]
 animations = [{
@@ -12,6 +41,32 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k400")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucrbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jedku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0pd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6a7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drd2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tnog")
+}],
+"loop": true,
+"name": &"protected",
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msoa2"]
@@ -23,6 +78,8 @@ script = ExtResource("1_ngrnm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_5g35j")
+animation = &"protected"
+frame_progress = 0.399465
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)

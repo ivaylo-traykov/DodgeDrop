@@ -32,7 +32,7 @@ func _process(delta):
 		die()
 
 func _on_body_entered(body):
-	if body is Player:
+	if body is Player and not Game.player_protected:
 		Game.player_get_hit()
 		print("Player got hit")
 		die()
