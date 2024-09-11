@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 var speed = 300
-var drift = speed / 10
+var drift = speed / 2
 var death_effect_scene = preload("res://Scenes/player_death_effect.tscn")
 @onready var sprite = $AnimatedSprite2D
 
@@ -30,6 +30,11 @@ func _process(delta):
 		position.x = 0
 
 	move_and_slide()
+
+func boost_speed():
+	if speed <= 1000:
+		speed += 100
+		drift = speed / 10		
 
 func die():
 	var death_effect = death_effect_scene.instantiate()
