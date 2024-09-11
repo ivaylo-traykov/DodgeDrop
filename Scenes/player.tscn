@@ -79,7 +79,7 @@ script = ExtResource("1_ngrnm")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_5g35j")
 animation = &"protected"
-frame_progress = 0.399465
+frame_progress = 0.973289
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)

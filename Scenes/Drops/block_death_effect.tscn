@@ -13,14 +13,15 @@ script = ExtResource("1_e226i")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 150
-lifetime = 2.0
 one_shot = true
-explosiveness = 0.8
+explosiveness = 0.9
 fract_delta = false
 emission_shape = 3
 emission_rect_extents = Vector2(32, 32)
 direction = Vector2(50, 50)
 spread = 106.39
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
 scale_amount_min = 2.0
 scale_amount_max = 8.0
 scale_amount_curve = SubResource("Curve_mlfrc")

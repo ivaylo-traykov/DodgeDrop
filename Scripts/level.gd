@@ -6,11 +6,18 @@ var item_scene = preload("res://Scenes/Drops/block.tscn")
 var timer = null
 var screen_width = 0
 
+var difficulty = Game.get_difficulty()
+
 func _ready():
 	timer = $spawn_cooldown
 	screen_width = int(get_viewport().size.x)
 
-func _process(delta):	
+func _process(delta):
+	## UPDATE DIFICULTY
+	if difficulty != Game.get_difficulty() and timer.wait_time > 0.1:
+		timer.wait_time -= 0.1
+		difficulty = Game.get_difficulty()
+	
 	## SPAWN DROPS
 	if spawn_ready:
 		var item = item_scene.instantiate()

@@ -24,8 +24,8 @@ func player_get_hit():
 			set_highscore()
 			game_over()
 
-func get_dificulty():
-	return round(score / 500)
+func get_difficulty():
+	return floor(score / 500)
 
 func set_highscore():
 	if score > get_highscore():

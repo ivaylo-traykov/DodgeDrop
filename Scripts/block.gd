@@ -17,7 +17,7 @@ func _ready():
 	scale = Vector2(scale_index, scale_index)
 	z_index = -scale_index
 	
-	speed += 2 * Game.get_dificulty()
+	speed += 2 * Game.get_difficulty()
 
 func _process(delta):
 	position.y += speed / scale_index
@@ -34,7 +34,6 @@ func _process(delta):
 func _on_body_entered(body):
 	if body is Player and not Game.player_protected:
 		Game.player_get_hit()
-		print("Player got hit")
 		die()
 		
 func die():
